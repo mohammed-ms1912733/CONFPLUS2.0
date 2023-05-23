@@ -1,0 +1,113 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model author {
+  id        String  @id @default(cuid())
+  firstName String
+  lastName  String
+  gender    String
+  email     String
+  password  String
+  paper     paper[]
+}
+
+model organizer {
+  id        String @id @default(cuid())
+  firstName String
+  lastName  String
+  gender    String
+  email     String
+  password  String
+}
+
+model reviewer {
+  id        String @id @default(cuid())
+  firstName String
+  lastName  String
+  gender    String
+  email     String
+  password  String
+}
+
+model schedule {
+  id       String     @id @default(cuid())
+  title    String
+  location locations?
+  date     dates?
+  brief    String
+  teaser   String
+  sessions session[]
+}
+
+model session {
+  id         String       @id @default(cuid())
+  from       DateTime
+  to         DateTime
+  presenter  presenters[]
+  schedule   schedule?    @relation(fields: [scheduleId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  scheduleId String?
+  paper      paper?
+}
+
+model presenters {
+  id        String   @id @default(cuid())
+  firstName String
+  lastName  String
+  special   String
+  session   session? @relation(fields: [sessionId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  sessionId String?
+}
+
+model paper {
+  id          String   @id @default(cuid())
+  title       String
+  abstract    String
+  author      author[]
+  presenter   String
+  reviewd     Boolean
+  affiliation String
+  review      review?
+  session     session? @relation(fields: [sessionId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  sessionId   String?  @unique
+}
+
+model institutions {
+  id        String  @id @default(cuid())
+  name      String
+  available Boolean
+}
+
+model review {
+  id           String @id @default(cuid())
+  evaluation   Int
+  contribution Int
+  strength     String
+  weakness     String
+  paper        paper  @relation(fields: [paperId], references: [id])
+  paperId      String @unique
+}
+
+model locations {
+  id         String    @id @default(cuid())
+  name       String
+  available  Boolean
+  schedule   schedule? @relation(fields: [scheduleId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  scheduleId String?   @unique
+}
+
+model dates {
+  id         String    @id @default(cuid())
+  date       DateTime
+  available  Boolean
+  schedule   schedule? @relation(fields: [scheduleId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  scheduleId String?   @unique
+}
