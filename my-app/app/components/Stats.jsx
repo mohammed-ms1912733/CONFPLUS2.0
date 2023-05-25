@@ -5,7 +5,7 @@ import ConfStatsCard from "./ConfStatsCard";
 
 export default function Stats() {
     return (
-        <div className="bg-primary text-center pb-20">
+        <div className="bg-primary text-center pb-20" id="StatsArea">
             <h2 className="pt-32 pb-2 text-4xl font-extrabold md:text-5xl">
                 Conference Statistics Report
             </h2>

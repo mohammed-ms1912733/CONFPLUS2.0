@@ -1,4 +1,5 @@
-import React from "react";
+import {React} from "react";
+
 
 export default function NavBar() {
     return (
@@ -26,10 +27,10 @@ export default function NavBar() {
                         className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                     >
                         <li>
-                            <a>Item 1</a>
+                            <a>Stats</a>
                         </li>
                         <li>
-                            <a>Item 2</a>
+                            <a>View Conferences</a>
                         </li>
                     </ul>
                 </div>
@@ -59,10 +60,10 @@ export default function NavBar() {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li>
-                        <a>Item 1</a>
+                        <a>Stats</a>
                     </li>
                     <li>
-                        <a>Item 2</a>
+                        <a>View Conferences</a>
                     </li>
                 </ul>
             </div>
