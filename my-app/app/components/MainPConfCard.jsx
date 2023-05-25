@@ -6,7 +6,9 @@ import SessionsContainer from "./SessionsContainer";
 
 export default function MainPConfCard() {
     return (
-        <div className="card w-96 bg-base-100 shadow-xl text-center h-fit mt-5 mb-5">
+        <div className="card w-96 bg-base-100 drop-shadow-2xl
+
+        text-center h-fit mt-5 mb-5">
             <div className="card-body w-70">
                 <h2 className="card-title text-2xl text-c text-neutral">
                     The Future of AI in Healthcare

@@ -17,7 +17,7 @@ export default function Stats() {
                 Authorship, and Session Presentations for All Attendees
             </p>
 
-            <div className=" flex flex-col" >
+            <div className="flex flex-col align-middle" >
                 <PapersStatsCard></PapersStatsCard>
                 <ConfStatsCard></ConfStatsCard>
                 <AvgAuthorsCard></AvgAuthorsCard>
