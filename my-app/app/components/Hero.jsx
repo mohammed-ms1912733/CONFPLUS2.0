@@ -14,7 +14,7 @@ export default function Hero() {
                         ultimate event management platform! Revolutionize
                         planning, management, and creation for unforgettable
                         academic events. Discover the power of ConfPlus and take
-                        your conferences to the next level of success!
+                        your conferences to the next level of success! hi wsl2
                     </p>
                     <button className="btn btn-primary">Get Started</button>
                 </div>
